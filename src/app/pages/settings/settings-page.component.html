@@ -1,0 +1,16 @@
+<div class="settings-page-wrapper" *ngIf="!!settings">
+    <h1 class="settings-header">Settings page</h1>
+
+    <section class="settings-section">
+        <h2>General</h2>
+        <div class="settings-section-row">
+            <label for="theme">Theme:</label>
+            <select name="theme"
+                [ngModel]="settings.theme"
+                (ngModelChange)="selectTheme($event)">
+                <option [value]="themeType.DARK">{{ themeType.DARK | lowercase }}</option>
+                <option [value]="themeType.LIGHT">{{ themeType.LIGHT | lowercase }}</option>
+            </select>
+        </div>
+    </section>
+</div>

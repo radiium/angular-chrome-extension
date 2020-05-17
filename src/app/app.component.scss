@@ -1,0 +1,26 @@
+.app-wrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    .app-nav {
+        height: 50px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+
+        a {
+            margin: 0 10px;
+            font-size: 2rem;
+            color: var(--color);
+        }
+    }
+
+    .app-content {
+        height: 100%;
+        width: 100%;
+    }
+}

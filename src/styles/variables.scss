@@ -1,0 +1,22 @@
+:root {
+    .dark-theme {
+        --color: #F0ECE2;
+        --bgColor: #282c34;
+        --bgColorPanel: #20232A;
+        --bgColorHover: rgba(255, 255, 255, 0.1);
+        --bgColorActive: rgba(255, 255, 255, 0.3);
+    }
+
+    .light-theme {
+        --color: #222831;
+        --bgColor: #F0ECE2;
+        --bgColorPanel: #D8D4CB;
+        --bgColorHover: rgba(0, 0, 0, 0.1);
+        --bgColorActive: rgba(0, 0, 0, 0.3);
+    }
+
+    --space-1: .5rem;
+    --space-2: 1rem;
+    --space-3: 2rem;
+    --space-4: 4rem;
+}
