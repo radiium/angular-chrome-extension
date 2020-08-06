@@ -1,11 +1,12 @@
 # angular-web-extension
 
 ## Description:
-This project is an angular template for creating cross browser web extensions.
+This project is an angular template for creating cross browser extension (Firefox/Chrome).  
+
 Generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.5.
 
 ##### More documentation on web extensions:
-- [Web extension](https://developer.mozilla.org/fr/docs/Mozilla/Add-ons/WebExtensions)
+- [Firefox web extension](https://developer.mozilla.org/fr/docs/Mozilla/Add-ons/WebExtensions)
 - [Chrome extension](https://developer.chrome.com/extensions)
 
 ## Getting Started:
@@ -29,7 +30,7 @@ All commands create artifact in /dist folder.
 - prod: ```npm run build:web-ext```  
 Go to page ```about:debugging#/runtime/this-firefox``` for install extension manually.
 
-##### For chrome
+##### For chrome extension
 - dev: ```npm run watch:chrome```
 - prod: ```npm run build:chrome```  
 Go to page ```chrome://extensions/``` for install extension manually.
