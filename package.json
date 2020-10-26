@@ -1,7 +1,7 @@
 {
   "name": "angular-web-extension",
   "description": "Angular template for creating cross browser web extensions",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "scripts": {
     "watch": "ng build --watch",
     "watch:chrome": " ng build --watch --configuration=chrome",
