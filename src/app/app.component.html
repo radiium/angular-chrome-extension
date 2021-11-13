@@ -1,12 +1,12 @@
 <div class="app-wrapper">
-    <nav class="app-nav">
-        <a routerLink="/home">home</a>
-        <a routerLink="/settings">settings</a>
-    </nav>
+  <nav class="app-nav">
+      <a routerLink="/home">home</a>
+      <a routerLink="/settings">settings</a>
+  </nav>
 
-    <main class="app-content">
-        <router-outlet></router-outlet>
-    </main>
+  <main class="app-content">
+      <router-outlet></router-outlet>
+  </main>
 </div>
 
 <app-loading *ngIf="loading"></app-loading>

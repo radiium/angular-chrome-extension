@@ -10,17 +10,17 @@ import { BaseAbstract } from '@core/abstract/base.abstract';
 })
 export class SettingsPageComponent extends BaseAbstract implements OnInit {
 
-    public settings: SettingsState;
+    public settings?: SettingsState;
     public themeType: typeof ThemeType = ThemeType;
 
     constructor(
-        public injector: Injector,
+        public override injector: Injector,
         private settingsService: SettingsService
     ) {
         super(injector);
     }
 
-    ngOnInit(): void {
+    override ngOnInit(): void {
         super.ngOnInit();
         this.subs.settings = this.settingsService.$state.subscribe({
             next: (settings: SettingsState) => {

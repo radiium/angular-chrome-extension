@@ -1,7 +1,8 @@
-import { Injector } from '@angular/core';
+import { Directive, Injector } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { BrowserAPIService } from '@core/browser-api/browser-api.service';
 
+@Directive()
 export abstract class AbstractStore<T> {
 
     protected browserAPIService: BrowserAPIService;

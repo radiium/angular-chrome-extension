@@ -8,11 +8,11 @@ import { BaseAbstract } from '@core/abstract/base.abstract';
 })
 export class HomePageComponent extends BaseAbstract implements OnInit {
 
-    constructor(public injector: Injector) {
+    constructor(public override injector: Injector) {
         super(injector);
     }
 
-    ngOnInit(): void {
+    override ngOnInit(): void {
         super.ngOnInit();
     }
 }

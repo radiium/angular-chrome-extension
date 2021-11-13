@@ -18,7 +18,7 @@ export class WebExtBrowserAPIService extends BrowserAPIService {
      *
      */
 
-    public async getTreeBookmarks(): Promise<any>{
+    public override async getTreeBookmarks(): Promise<any>{
         return window.browser.storage.local.getTree();
     }
 
@@ -28,11 +28,11 @@ export class WebExtBrowserAPIService extends BrowserAPIService {
      *
      */
 
-    public async createTabs(url: string): Promise<any> {
+    public override async createTabs(url: string): Promise<any> {
         return window.browser.tabs.create({ url });
     }
 
-    public async updateTabs(url: string): Promise<any> {
+    public override async updateTabs(url: string): Promise<any> {
         return window.browser.tabs.update({ url });
     }
 
@@ -43,23 +43,23 @@ export class WebExtBrowserAPIService extends BrowserAPIService {
      */
 
 
-    public async getItemStorage(key: string, defaultValue: any = null): Promise<any>  {
+    public override async getItemStorage(key: string, defaultValue: any = null): Promise<any>  {
         const itemKey = this.buildKey(key);
         return window.browser.storage.local.get(itemKey)
             .then((data: any) => this.getData(itemKey, data, defaultValue));
     }
 
-    public async setItemStorage(key: string, value: any): Promise<void> {
+    public override async setItemStorage(key: string, value: any): Promise<void> {
         const itemKey = this.buildKey(key);
         return window.browser.storage.local.set({ [itemKey]: value });
     }
 
-    public async removeItemStorage(key: string): Promise<void> {
+    public override async removeItemStorage(key: string): Promise<void> {
         const itemKey = this.buildKey(key);
         return window.browser.storage.local.remove(itemKey);
     }
 
-    public async clearStorage(): Promise<void> {
+    public override async clearStorage(): Promise<void> {
         return window.browser.storage.local.clear();
     }
 
@@ -69,7 +69,7 @@ export class WebExtBrowserAPIService extends BrowserAPIService {
      *
      */
 
-    public getFaviconUrl(url: string): string {
+    public override getFaviconUrl(url: string): string {
         try {
             const hostname = new URL(url || '').hostname;
             return `https://api.faviconkit.com/${hostname}/40`;

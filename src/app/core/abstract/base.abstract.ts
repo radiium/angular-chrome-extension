@@ -1,7 +1,8 @@
-import { Injector, OnInit, OnDestroy } from '@angular/core';
+import { Injector, OnInit, OnDestroy, Directive } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { LoadingService } from '@core/services/loading.service';
 
+@Directive()
 export class BaseAbstract implements OnInit, OnDestroy {
 
     protected loadingService: LoadingService;

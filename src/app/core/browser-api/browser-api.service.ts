@@ -8,7 +8,7 @@ export abstract class BrowserAPIService {
      *
      */
 
-    public abstract async getTreeBookmarks(key: string): Promise<any>;
+    public abstract getTreeBookmarks(key: string): Promise<any>;
 
     /**
      *
@@ -16,9 +16,9 @@ export abstract class BrowserAPIService {
      *
      */
 
-    public abstract async createTabs(url: string): Promise<any>;
+    public abstract createTabs(url: string): Promise<any>;
 
-    public abstract async updateTabs(url: string): Promise<any>;
+    public abstract updateTabs(url: string): Promise<any>;
 
     /**
      *
@@ -26,13 +26,13 @@ export abstract class BrowserAPIService {
      *
      */
 
-    public abstract async getItemStorage(key: string): Promise<any>;
+    public abstract getItemStorage(key: string): Promise<any>;
 
-    public abstract async setItemStorage(key: string, value: any): Promise<void>;
+    public abstract setItemStorage(key: string, value: any): Promise<void>;
 
-    public abstract async removeItemStorage(key: string): Promise<void>;
+    public abstract removeItemStorage(key: string): Promise<void>;
 
-    public abstract async clearStorage(): Promise<void>;
+    public abstract clearStorage(): Promise<void>;
 
     /**
      *

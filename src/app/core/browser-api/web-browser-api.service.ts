@@ -19,7 +19,7 @@ export class WebBrowserAPIService extends BrowserAPIService {
      *
      */
 
-    public async getTreeBookmarks(): Promise<any>{
+    public override async getTreeBookmarks(): Promise<any>{
         return Promise.resolve(bookmarks);
     }
 
@@ -29,11 +29,11 @@ export class WebBrowserAPIService extends BrowserAPIService {
      *
      */
 
-    public async createTabs(url: string): Promise<any> {
+    public override async createTabs(url: string): Promise<any> {
         return Promise.resolve(window.open(url, '_blank'));
     }
 
-    public async updateTabs(url: string): Promise<any> {
+    public override async updateTabs(url: string): Promise<any> {
         return Promise.resolve(window.open(url, '_self'));
     }
 
@@ -43,7 +43,7 @@ export class WebBrowserAPIService extends BrowserAPIService {
      *
      */
 
-    public async getItemStorage(key: string, defaultValue: any = null): Promise<any>  {
+    public override async getItemStorage(key: string, defaultValue: any = null): Promise<any>  {
         const itemKey = this.buildKey(key);
         return new Promise((resolve, reject) => {
             try {
@@ -58,7 +58,7 @@ export class WebBrowserAPIService extends BrowserAPIService {
         });
     }
 
-    public async setItemStorage(key: string, value: any): Promise<void> {
+    public override async setItemStorage(key: string, value: any): Promise<void> {
         const itemKey = this.buildKey(key);
         return new Promise((resolve, reject) => {
             try {
@@ -70,7 +70,7 @@ export class WebBrowserAPIService extends BrowserAPIService {
         });
     }
 
-    public async removeItemStorage(key: string): Promise<void> {
+    public override async removeItemStorage(key: string): Promise<void> {
         const itemKey = this.buildKey(key);
         return new Promise((resolve, reject) => {
             try {
@@ -83,7 +83,7 @@ export class WebBrowserAPIService extends BrowserAPIService {
         return ;
     }
 
-    public async clearStorage(): Promise<void> {
+    public override async clearStorage(): Promise<void> {
         return new Promise((resolve, reject) => {
             try {
                 window.localStorage.clear();
@@ -100,7 +100,7 @@ export class WebBrowserAPIService extends BrowserAPIService {
      *
      */
 
-    public getFaviconUrl(url: string): string {
+    public override getFaviconUrl(url: string): string {
         try {
             const hostname = new URL(url || '').hostname;
             return `https://api.faviconkit.com/${hostname}/40`;

@@ -7,16 +7,16 @@ import { AbstractStore } from '@core/abstract/store.abstract';
 })
 export class SettingsService extends AbstractStore<SettingsState> {
 
-    protected readonly STORAGE_KEY: string = 'settings';
-    protected readonly DEFAULT_STATE: SettingsState = {
+    protected override readonly STORAGE_KEY: string = 'settings';
+    protected override readonly DEFAULT_STATE: SettingsState = {
         theme: ThemeType.DARK,
     };
 
-    constructor(public injector: Injector) {
+    constructor(public override injector: Injector) {
         super(injector);
     }
 
-    public async init(): Promise<SettingsState> {
+    public override async init(): Promise<SettingsState> {
         return super.init().then((state: SettingsState) => {
             this.setState(state);
             this.applyTheme(state.theme);

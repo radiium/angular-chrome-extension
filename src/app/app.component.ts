@@ -12,7 +12,7 @@ export class AppComponent extends BaseAbstract {
     public loading = true;
 
     constructor(
-        public injector: Injector,
+        public override injector: Injector,
         private settingsService: SettingsService
     ) {
         super(injector);

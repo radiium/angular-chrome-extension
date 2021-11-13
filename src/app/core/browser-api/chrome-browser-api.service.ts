@@ -18,7 +18,7 @@ export class ChromeBrowserAPIService extends BrowserAPIService {
      *
      */
 
-    public async getTreeBookmarks(): Promise<any>{
+    public override async getTreeBookmarks(): Promise<any>{
         return new Promise((resolve, reject) => {
             window.chrome.storage.local.getTree((data: any) => {
                 if (window.chrome.runtime.lastError) {
@@ -35,7 +35,7 @@ export class ChromeBrowserAPIService extends BrowserAPIService {
      *
      */
 
-    public async createTabs(url: string): Promise<any> {
+    public override async createTabs(url: string): Promise<any> {
         return new Promise((resolve, reject) => {
             window.chrome.tabs.create({ url }, (tabs: any) => {
                 if (window.chrome.runtime.lastError) {
@@ -46,7 +46,7 @@ export class ChromeBrowserAPIService extends BrowserAPIService {
         });
     }
 
-    public async updateTabs(url: string): Promise<any> {
+    public override async updateTabs(url: string): Promise<any> {
         return new Promise((resolve, reject) => {
             window.chrome.tabs.update({ url }, (tabs: any) => {
                 if (window.chrome.runtime.lastError) {
@@ -63,7 +63,7 @@ export class ChromeBrowserAPIService extends BrowserAPIService {
      *
      */
 
-    public async getItemStorage(key: string, defaultValue: any = null): Promise<any>  {
+    public override async getItemStorage(key: string, defaultValue: any = null): Promise<any>  {
         const itemKey = this.buildKey(key);
         return new Promise((resolve, reject) => {
             window.chrome.storage.local.get(itemKey, (data: any) => {
@@ -75,7 +75,7 @@ export class ChromeBrowserAPIService extends BrowserAPIService {
         });
     }
 
-    public async setItemStorage(key: string, value: any): Promise<void> {
+    public override async setItemStorage(key: string, value: any): Promise<void> {
         const itemKey = this.buildKey(key);
         return new Promise((resolve, reject) => {
             window.chrome.storage.local.set({ [itemKey]: value }, () => {
@@ -87,7 +87,7 @@ export class ChromeBrowserAPIService extends BrowserAPIService {
         });
     }
 
-    public async removeItemStorage(key: string): Promise<void> {
+    public override async removeItemStorage(key: string): Promise<void> {
         const itemKey = this.buildKey(key);
         return new Promise((resolve, reject) => {
             window.chrome.storage.local.remove(itemKey, () => {
@@ -99,7 +99,7 @@ export class ChromeBrowserAPIService extends BrowserAPIService {
         });
     }
 
-    public async clearStorage(): Promise<void> {
+    public override async clearStorage(): Promise<void> {
         return new Promise((resolve, reject) => {
             window.chrome.storage.local.clear(() => {
                 if (window.chrome.runtime.lastError) {
@@ -116,7 +116,7 @@ export class ChromeBrowserAPIService extends BrowserAPIService {
      *
      */
 
-    public getFaviconUrl(url: string): string {
+    public override getFaviconUrl(url: string): string {
         return `chrome://favicon/size/16@2x/${url}`;
     }
 }
