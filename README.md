@@ -1,9 +1,9 @@
 # angular-web-extension
 
 ## Description:
-This project is an angular template for creating cross browser extension (Firefox/Chrome).  
+This project is an angular template for creating cross browser extension (Firefox/Chrome)   
 
-Generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.5.
+Generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.X.X  
 
 ##### More documentation on web extensions:
 - [Firefox web extension](https://developer.mozilla.org/fr/docs/Mozilla/Add-ons/WebExtensions)
