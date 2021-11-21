@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-web-extension": {
+    "angular-chrome-extension": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -18,9 +18,9 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
-            "outputPath": "dist/angular-web-extension",
+            "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -34,8 +34,12 @@
             "styles": [
               "src/index.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "customWebpackConfig": {
+              "path": "./custom-webpack.config.ts"
+            }
           },
+          "defaultConfiguration": "production",
           "configurations": {
             "production": {
               "budgets": [
@@ -56,7 +60,7 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "none"
             },
             "development": {
               "buildOptimizer": false,
@@ -64,35 +68,21 @@
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true
-            },
-            "chrome": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.chrome.ts"
-                }
-              ]
-            },
-            "web-ext": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.web-ext.ts"
-                }
-              ]
+              "namedChunks": true,
+              "customWebpackConfig": {
+                "path": "./custom-webpack-dev.config.ts"
+              }
             }
-          },
-          "defaultConfiguration": "production"
+          }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "angular-web-extension:build:production"
+              "browserTarget": "angular-chrome-extension:build:production"
             },
             "development": {
-              "browserTarget": "angular-web-extension:build:development"
+              "browserTarget": "angular-chrome-extension:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -100,7 +90,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-web-extension:build"
+            "browserTarget": "angular-chrome-extension:build"
           }
         },
         "test": {
@@ -133,7 +123,7 @@
       }
     }
   },
-  "defaultProject": "angular-web-extension",
+  "defaultProject": "angular-chrome-extension",
   "cli": {
     "defaultCollection": "@angular-eslint/schematics"
   }

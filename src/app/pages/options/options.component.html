@@ -1,0 +1,13 @@
+<main>
+    <h2>Options page</h2>
+
+    <form>
+        <div>
+            <label for="theme">Theme:</label>
+            <select name="theme" [ngModel]="options?.theme" (ngModelChange)="selectTheme($event)">
+                <option [value]="themeType.DARK">{{ themeType.DARK | lowercase }}</option>
+                <option [value]="themeType.LIGHT">{{ themeType.LIGHT | lowercase }}</option>
+            </select>
+        </div>
+    </form>
+</main>

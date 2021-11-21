@@ -1,23 +1,20 @@
-import { Injector, OnInit, OnDestroy, Directive } from '@angular/core';
+import { OnDestroy, Directive } from '@angular/core';
+import { AppInjector } from '@core/configs/app-injector';
+import { OptionsService } from '@core/services/options.service';
 import { Subscription } from 'rxjs';
-import { LoadingService } from '@core/services/loading.service';
 
 @Directive()
-export class BaseAbstract implements OnInit, OnDestroy {
-
-    protected loadingService: LoadingService;
+export class BaseAbstract implements OnDestroy {
 
     protected subs: { [key: string]: Subscription } = {};
     protected timeouts: { [key: string]: any } = {};
+    protected optionsService: OptionsService;
 
-    constructor(public injector: Injector) {
-        this.loadingService = this.injector.get(LoadingService);
+    constructor() {
+        this.optionsService = AppInjector.injector.get(OptionsService);
     }
 
-    ngOnInit() {
-    }
-
-    ngOnDestroy() {
+    ngOnDestroy(): void {
         Object.values(this.subs).forEach((sub: Subscription) => {
             if (!!sub && !!sub.unsubscribe) {
                 sub.unsubscribe();
@@ -27,6 +24,12 @@ export class BaseAbstract implements OnInit, OnDestroy {
             if (!!timeout) {
                 clearTimeout(timeout);
             }
+        });
+    }
+
+    openOptionsPage(): void {
+        chrome.runtime.openOptionsPage(() => {
+            console.log('Option page opened')
         });
     }
 }

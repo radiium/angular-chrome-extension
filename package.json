@@ -1,14 +1,19 @@
 {
-  "name": "angular-web-extension",
-  "description": "Angular template for creating cross browser web extensions",
+  "name": "angular-chrome-extension",
+  "description": "Angular template for creating chrome extensions",
   "version": "1.1.0",
+  "keywords": [
+    "chrome",
+    "angular",
+    "chrome extension",
+    "angular chrome extension",
+    "hot reload",
+    "chrome api"
+  ],
   "scripts": {
-    "watch": "ng build --watch",
-    "watch:chrome": " ng build --watch --configuration=chrome",
-    "watch:web-ext": "ng build --watch --configuration=web-ext",
-    "build": "ng build --prod --output-hashing=none",
-    "build:chrome": "ng build --prod --output-hashing=none --configuration=chrome",
-    "build:web-ext": "ng build --prod --output-hashing=none --configuration=web-ext",
+    "start": "npm run watch",
+    "watch": "ng build --watch --configuration=development",
+    "build": "ng build --configuration=production",
     "test": "ng test",
     "serve": "ng serve",
     "lint": "ng lint",
@@ -29,6 +34,7 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
+    "@angular-builders/custom-webpack": "^13.0.0",
     "@angular-devkit/build-angular": "~13.0.2",
     "@angular-eslint/builder": "12.6.1",
     "@angular-eslint/eslint-plugin": "12.6.1",
@@ -37,6 +43,7 @@
     "@angular-eslint/template-parser": "12.6.1",
     "@angular/cli": "~13.0.2",
     "@angular/compiler-cli": "~13.0.0",
+    "@types/chrome": "^0.0.164",
     "@types/jasmine": "~3.10.0",
     "@types/node": "^12.11.1",
     "@typescript-eslint/eslint-plugin": "4.28.2",
@@ -48,6 +55,7 @@
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
-    "typescript": "~4.4.3"
+    "typescript": "~4.4.3",
+    "webpack-ext-reloader": "^1.1.8"
   }
 }

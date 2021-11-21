@@ -1,5 +1,5 @@
 import { ThemeType } from './theme-type.enum';
 
-export interface SettingsState {
+export interface Options {
     theme: ThemeType;
 }

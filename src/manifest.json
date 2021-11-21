@@ -1,32 +1,31 @@
 {
-  "name": "angular-web-extension",
-  "short_name": "angular-web-extension",
-  "description": "new tab angular web extension",
-  "manifest_version": 2,
-  "minimum_chrome_version": "0",
-  "version": "0.1.0",
-  "offline_enabled": true,
-  "web_accessible_resources": [
-    "index.html"
-  ],
-  "icons": {
-    "512": "/assets/icons/android-chrome-512x512.png",
-    "192": "/assets/icons/android-chrome-192x192.png",
-    "32": "/assets/icons/favicon-32x32.png",
-    "16": "/assets/icons/favicon-16x16.png"
+  "name": "angular-chrome-extension",
+  "short_name": "angular-chrome-extension",
+  "description": "Template for angular chrome extension",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "index.html?#/popup",
+    "default_title": "Angular Chrome Extension"
   },
-  "chrome_url_overrides": {
-    "newtab": "index.html"
+  "options_page": "index.html?#/options",
+  "background": {
+    "service_worker": "background.js"
   },
-  "options_ui": {
-    "page": "index.html?page=options"
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
   },
-  "content_security_policy": "script-src 'self' 'unsafe-inline' unsafe-eval'; object-src 'self' 'sha256-/GxKx8RIbCG9rAB61hodZPbJ/yetZqexsQiF6Xu9YKk='",
   "permissions": [
     "bookmarks",
     "tabs",
     "chrome://favicon/",
     "history",
     "storage"
-  ]
+  ],
+  "icons": {
+    "512": "/assets/icons/android-chrome-512x512.png",
+    "192": "/assets/icons/android-chrome-192x192.png",
+    "32": "/assets/icons/favicon-32x32.png",
+    "16": "/assets/icons/favicon-16x16.png"
+  }
 }
